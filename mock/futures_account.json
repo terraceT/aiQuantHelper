@@ -1,0 +1,68 @@
+{
+  "totalInitialMargin": "2775.46666667",
+  "totalMaintMargin": "54.12000000",
+  "totalWalletBalance": "5000.00000000",
+  "totalUnrealizedProfit": "-104.00000000",
+  "totalMarginBalance": "4896.00000000",
+  "totalPositionInitialMargin": "2775.46666667",
+  "totalOpenOrderInitialMargin": "0.00000000",
+  "totalCrossWalletBalance": "5000.00000000",
+  "totalCrossUnPnl": "-104.00000000",
+  "availableBalance": "2120.53333333",
+  "maxWithdrawAmount": "2120.53333333",
+  "assets": [
+    {
+      "asset": "USDT",
+      "walletBalance": "5000.00000000",
+      "unrealizedProfit": "-104.00000000",
+      "marginBalance": "4896.00000000",
+      "maintMargin": "54.12000000",
+      "initialMargin": "2775.46666667",
+      "positionInitialMargin": "2775.46666667",
+      "openOrderInitialMargin": "0.00000000",
+      "crossWalletBalance": "5000.00000000",
+      "crossUnPnl": "-104.00000000",
+      "availableBalance": "2120.53333333",
+      "maxWithdrawAmount": "2120.53333333",
+      "updateTime": 1793000000000
+    }
+  ],
+  "positions": [
+    {
+      "symbol": "BTCUSDT",
+      "positionSide": "BOTH",
+      "positionAmt": "0.05",
+      "unrealizedProfit": "200.00000000",
+      "isolatedMargin": "0",
+      "notional": "3800.00000000",
+      "isolatedWallet": "0",
+      "initialMargin": "760.00000000",
+      "maintMargin": "15.20000000",
+      "updateTime": 1792928000000
+    },
+    {
+      "symbol": "ETHUSDT",
+      "positionSide": "BOTH",
+      "positionAmt": "-1.2",
+      "unrealizedProfit": "-144.00000000",
+      "isolatedMargin": "0",
+      "notional": "-4344.00000000",
+      "isolatedWallet": "0",
+      "initialMargin": "868.80000000",
+      "maintMargin": "21.72000000",
+      "updateTime": 1792928000000
+    },
+    {
+      "symbol": "SOLUSDT",
+      "positionSide": "BOTH",
+      "positionAmt": "20.0",
+      "unrealizedProfit": "-160.00000000",
+      "isolatedMargin": "0",
+      "notional": "3440.00000000",
+      "isolatedWallet": "0",
+      "initialMargin": "1146.66666667",
+      "maintMargin": "17.20000000",
+      "updateTime": 1792928000000
+    }
+  ]
+}

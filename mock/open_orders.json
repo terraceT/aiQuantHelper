@@ -1,0 +1,25 @@
+[
+  {
+    "orderId": 810002,
+    "symbol": "ETHUSDT",
+    "status": "NEW",
+    "clientOrderId": "demo810002",
+    "price": "3300",
+    "avgPrice": "0",
+    "origQty": "0.6",
+    "executedQty": "0",
+    "cumQuote": "0",
+    "timeInForce": "GTC",
+    "type": "LIMIT",
+    "reduceOnly": true,
+    "closePosition": false,
+    "side": "BUY",
+    "positionSide": "BOTH",
+    "stopPrice": "0",
+    "workingType": "MARK_PRICE",
+    "priceProtect": false,
+    "origType": "LIMIT",
+    "time": 1792982000000,
+    "updateTime": 1792982000000
+  }
+]

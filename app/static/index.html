@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>aiQuantHelper · 账户概览</title>
+<link rel="icon" href="data:,">
+<!-- 单文件、零外部资源。每个数据块三态分开：加载中 / 出错（显示原因）/ 有数据。所有数据先转义再显示。 -->
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1120;color:#e2e8f0;font:13px/1.5 "Segoe UI","Microsoft YaHei",sans-serif}
+header{display:flex;align-items:center;gap:12px;padding:12px 20px;background:#111827;border-bottom:1px solid #1f2937;position:sticky;top:0;z-index:10}
+header h1{font-size:17px;margin:0}
+.badge{padding:2px 10px;border-radius:10px;font-weight:600;font-size:12px}
+.badge.LIVE{background:#15803d;color:#fff}.badge.MOCK{background:#ca8a04;color:#111}
+header .sp{flex:1}
+header .meta{color:#94a3b8;font-size:12px}
+button.btn{background:#1f2937;color:#e2e8f0;border:1px solid #374151;border-radius:6px;padding:4px 12px;cursor:pointer;font:inherit}
+#mock-tip{display:none;background:#422006;color:#fde68a;padding:8px 20px;border-bottom:1px solid #713f12}
+main{padding:16px 20px 90px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(520px,1fr))}
+section{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:12px 14px;min-width:0}
+section.wide{grid-column:1/-1}
+section h2{font-size:14px;margin:0 0 10px;color:#93c5fd;display:flex;gap:8px;align-items:center}
+section h2 small{color:#94a3b8;font-weight:400}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:#0f172a;border:1px solid #1f2937;border-radius:8px;padding:8px 12px}
+.kpi .k{color:#94a3b8;font-size:12px}.kpi .v{font-size:19px;font-weight:600;margin-top:2px}
+.pos{color:#22c55e}.neg{color:#ef4444}.muted{color:#94a3b8}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:5px 8px;border-bottom:1px solid #1f2937;text-align:right;white-space:nowrap}
+th{color:#94a3b8;font-weight:500;background:#0f172a}
+th:first-child,td:first-child{text-align:left}
+.tablewrap{overflow-x:auto}
+.state{padding:10px;color:#94a3b8}.state.err{color:#fecaca;background:#450a0a;border-radius:6px;white-space:pre-wrap}
+.lvl{display:inline-block;min-width:64px;text-align:center;border-radius:9px;padding:0 8px;font-size:12px}
+.lvl.ok{background:#14532d}.lvl.warn{background:#854d0e}.lvl.danger{background:#7f1d1d}
+.checks td{text-align:left;white-space:normal}
+.overall{font-weight:600}
+/* ---------------- AI 运维助手 ---------------- */
+#ai-fab{position:fixed;right:20px;bottom:20px;z-index:100;background:#2563eb;color:#fff;border:0;border-radius:24px;
+  padding:10px 18px;font:600 14px "Segoe UI","Microsoft YaHei",sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.5)}
+#ai-box{position:fixed;right:20px;bottom:72px;z-index:100;width:min(580px,calc(100vw - 40px));height:min(660px,calc(100vh - 100px));
+  display:none;flex-direction:column;background:#0f172a;border:1px solid #334155;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+#ai-box.open{display:flex}
+#ai-head{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid #334155;background:#1e293b;border-radius:10px 10px 0 0}
+#ai-head b{flex:1}
+#ai-head button{background:none;border:0;color:#94a3b8;cursor:pointer;font:inherit}
+#ai-state{font-size:12px;padding:1px 8px;border-radius:9px;background:#64748b}
+#ai-state.ok{background:#15803d}#ai-state.bad{background:#b91c1c}#ai-state.busy{background:#b45309}
+#ai-log{flex:1;overflow:auto;padding:10px 12px}
+.msg{margin:0 0 12px}.msg .who{font-size:12px;color:#94a3b8;margin-bottom:2px}
+.msg.user .body{background:#1e3a8a;display:inline-block;padding:6px 10px;border-radius:8px;white-space:pre-wrap}
+.msg.bot .body{background:#1e293b;padding:8px 10px;border-radius:8px;overflow-x:auto}
+.msg.err .body{background:#450a0a;color:#fecaca;padding:8px 10px;border-radius:8px;white-space:pre-wrap}
+.msg .body table{width:auto;margin:6px 0}.msg .body td,.msg .body th{border:1px solid #334155;text-align:left}
+.msg .body code{background:#334155;padding:0 4px;border-radius:3px;font-family:Consolas,monospace}
+.msg .body h4{margin:8px 0 4px;color:#93c5fd}.msg .body ul{margin:4px 0;padding-left:20px}
+.steps{font-size:11px;color:#94a3b8;margin-top:4px}
+#ai-quick{display:flex;flex-wrap:wrap;gap:6px;padding:6px 12px 0}
+#ai-quick button{background:#1e293b;color:#cbd5e1;border:1px solid #334155;border-radius:12px;padding:2px 10px;font-size:12px;cursor:pointer}
+#ai-form{display:flex;gap:8px;padding:8px 12px 12px}
+#ai-input{flex:1;resize:none;height:54px;background:#0b1220;color:#e2e8f0;border:1px solid #334155;border-radius:6px;padding:6px 8px;font:inherit}
+#ai-send{background:#2563eb;color:#fff;border:0;border-radius:6px;padding:0 16px;cursor:pointer;font:inherit}
+#ai-send:disabled{background:#475569;cursor:wait}
+</style>
+</head>
+<body>
+<header>
+  <h1>aiQuantHelper</h1><span id="mode" class="badge">…</span>
+  <span class="sp"></span>
+  <span class="meta" id="updated">加载中…</span>
+  <button class="btn" id="refresh" type="button">刷新</button>
+</header>
+<div id="mock-tip">当前是<b>演示模式（MOCK）</b>：下面的数据来自本地 mock/ 目录，不是你的真实账户。
+  在 config.ini 的 [binance] 填入 API Key 和 Secret 后重新运行 start.bat，即可查看真实账户（只读）。</div>
+<main>
+  <section class="wide" id="sec-account"><h2>合约账户 <small>U 本位 · USDT</small></h2><div class="c"><div class="state">加载中…</div></div></section>
+  <section class="wide" id="sec-positions"><h2>持仓 <small id="pos-count"></small></h2><div class="c"><div class="state">加载中…</div></div></section>
+  <section id="sec-risk"><h2>风险体检</h2><div class="c"><div class="state">加载中…</div></div></section>
+  <section id="sec-orders"><h2>挂单与条件单</h2><div class="c"><div class="state">加载中…</div></div></section>
+  <section id="sec-income"><h2>资金流水 <small>近 7 天</small></h2><div class="c"><div class="state">加载中…</div></div></section>
+  <section id="sec-spot"><h2>现货余额</h2><div class="c"><div class="state">加载中…</div></div></section>
+</main>
+
+<button id="ai-fab" type="button" title="AI 运维助手（只读，不会下单）">🤖 AI 运维助手</button>
+<div id="ai-box" role="dialog" aria-label="AI 运维助手">
+  <div id="ai-head"><b>AI 运维助手 <span style="font-weight:400;color:#94a3b8;font-size:12px">只读 · 不会下单</span></b>
+    <span id="ai-state">检查中</span>
+    <button type="button" id="ai-clear" title="清空对话">清空</button>
+    <button type="button" id="ai-close" title="关闭" style="font-size:17px">×</button>
+  </div>
+  <div id="ai-log"></div>
+  <div id="ai-quick">
+    <button type="button">今天的运维日报情况怎么样</button>
+    <button type="button">我的仓位是什么情况</button>
+    <button type="button">有什么风险需要注意</button>
+    <button type="button">检查一下币安连接和 API 权限</button>
+  </div>
+  <form id="ai-form"><textarea id="ai-input" placeholder="输入问题，Enter 发送，Shift+Enter 换行"></textarea>
+    <button id="ai-send" type="submit">发送</button></form>
+</div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+  function num(v, d){ if (v === null || v === undefined || v === "") return "—"; var n = Number(v);
+    return isNaN(n) ? esc(v) : n.toLocaleString("zh-CN", {minimumFractionDigits: d === undefined ? 2 : d, maximumFractionDigits: d === undefined ? 2 : d}); }
+  function qty(v){ return v === null || v === undefined ? "—" : esc(String(+Number(v).toPrecision(10))); }
+  function signed(v){ var n = Number(v); var cls = n > 0 ? "pos" : n < 0 ? "neg" : ""; return "<span class='" + cls + "'>" + (n > 0 ? "+" : "") + num(v) + "</span>"; }
+  function table(head, rows){ return "<div class='tablewrap'><table><tr>" + head.map(function(h){ return "<th>" + esc(h) + "</th>"; }).join("") + "</tr>" + rows.join("") + "</table></div>"; }
+  function setSec(id, html){ document.querySelector("#" + id + " .c").innerHTML = html; }
+  function errBox(msg){ return "<div class='state err'>出错：" + esc(msg) + "</div>"; }
+  function empty(msg){ return "<div class='state'>" + esc(msg) + "</div>"; }
+
+  function renderAccount(r){
+    if (!r.ok){ setSec("sec-account", errBox(r.error)); setSec("sec-positions", errBox(r.error)); $("pos-count").textContent = ""; return; }
+    var a = r.data;
+    var k = [["权益（保证金余额）", num(a.equity_usdt)], ["钱包余额", num(a.wallet_balance_usdt)], ["未实现盈亏", signed(a.unrealized_pnl_usdt)],
+             ["可用余额", num(a.available_balance_usdt)], ["实际杠杆（总敞口/权益）", a.gross_leverage == null ? "—" : num(a.gross_leverage) + " 倍"],
+             ["保证金率", a.margin_ratio_pct == null ? "—" : num(a.margin_ratio_pct) + "%"],
+             ["多头敞口", num(a.long_notional_usdt)], ["空头敞口", num(a.short_notional_usdt)]];
+    setSec("sec-account", "<div class='kpis'>" + k.map(function(x){ return "<div class='kpi'><div class='k'>" + esc(x[0]) + "</div><div class='v'>" + x[1] + "</div></div>"; }).join("") + "</div>");
+    $("pos-count").textContent = a.positions.length + " 个";
+    if (!a.positions.length){ setSec("sec-positions", empty("当前没有持仓")); return; }
+    setSec("sec-positions", table(["合约", "方向", "数量", "开仓价", "标记价", "名义价值", "未实现盈亏", "盈亏/保证金", "杠杆", "保证金", "强平价", "强平距离"],
+      a.positions.map(function(p){
+        var dist = p.liq_distance_pct == null ? "—" : "<span class='" + (p.liq_distance_pct < 5 ? "neg" : p.liq_distance_pct < 10 ? "" : "muted") + "'>" + num(p.liq_distance_pct) + "%</span>";
+        return "<tr><td><b>" + esc(p.symbol) + "</b></td><td class='" + (p.side === "多" ? "pos" : "neg") + "'>" + esc(p.side) + "</td><td>" + qty(p.qty) +
+          "</td><td>" + qty(p.entry_price) + "</td><td>" + qty(p.mark_price) + "</td><td>" + num(p.notional_usdt) + "</td><td>" + signed(p.unrealized_pnl) +
+          "</td><td>" + (p.pnl_pct_of_margin == null ? "—" : signed(p.pnl_pct_of_margin) + "%") + "</td><td>" + esc(p.leverage) + "x</td><td>" + esc(p.margin_type) +
+          "</td><td>" + (p.liquidation_price == null ? "—" : qty(p.liquidation_price)) + "</td><td>" + dist + "</td></tr>";
+      })));
+  }
+  function renderRisk(r){
+    if (!r.ok){ setSec("sec-risk", errBox(r.error)); return; }
+    var d = r.data, cls = d.overall === "正常" ? "ok" : d.overall === "需要关注" ? "warn" : "danger";
+    var name = {ok: "正常", warn: "关注", danger: "危险"};
+    setSec("sec-risk", "<div style='margin-bottom:8px'>结论：<span class='lvl " + cls + " overall'>" + esc(d.overall) + "</span></div>" +
+      "<table class='checks'>" + d.checks.map(function(c){ return "<tr><td style='width:76px'><span class='lvl " + esc(c.level) + "'>" + esc(name[c.level] || c.level) +
+        "</span></td><td style='width:110px'>" + esc(c.item) + "</td><td>" + esc(c.detail) + "</td></tr>"; }).join("") + "</table>");
+  }
+  function renderOrders(r){
+    if (!r.ok){ setSec("sec-orders", errBox(r.error)); return; }
+    var errs = r.data.filter(function(o){ return o.algo_error; }), rows = r.data.filter(function(o){ return !o.algo_error; });
+    var html = errs.map(function(o){ return errBox(o.algo_error); }).join("");
+    html += rows.length ? table(["合约", "类别", "方向", "类型", "价格", "触发价", "数量", "只减仓", "下单时间"], rows.map(function(o){
+      return "<tr><td><b>" + esc(o.symbol) + "</b></td><td>" + esc(o.kind) + "</td><td class='" + (o.side === "买" ? "pos" : "neg") + "'>" + esc(o.side) +
+        "</td><td>" + esc(o.type) + "</td><td>" + (o.price == null ? "—" : qty(o.price)) + "</td><td>" + (o.stop_price == null ? "—" : qty(o.stop_price)) +
+        "</td><td>" + (o.close_position ? "全部平仓" : qty(o.qty)) + "</td><td>" + (o.reduce_only || o.close_position ? "是" : "否") + "</td><td>" + esc(o.time) + "</td></tr>";
+    })) : empty("当前没有挂单");
+    setSec("sec-orders", html);
+  }
+  function renderIncome(r){
+    if (!r.ok){ setSec("sec-income", errBox(r.error)); return; }
+    var d = r.data;
+    if (!d.count){ setSec("sec-income", empty("近 " + d.days + " 天没有资金流水")); return; }
+    var types = Object.keys(d.by_type).map(function(k){ return "<tr><td>" + esc(k) + "</td><td>" + signed(d.by_type[k]) + "</td></tr>"; });
+    types.push("<tr><td><b>合计</b></td><td><b>" + signed(d.total_usdt) + "</b></td></tr>");
+    var recent = d.recent.slice(0, 8).map(function(x){ return "<tr><td>" + esc(x.time) + "</td><td>" + esc(x.symbol) + "</td><td>" + esc(x.type) + "</td><td>" + signed(x.amount) + "</td></tr>"; });
+    setSec("sec-income", table(["类型", "金额（USDT）"], types) + "<div class='muted' style='margin:10px 0 4px'>最近 " + recent.length + " 条（共 " + d.count + " 条）</div>" +
+      table(["时间（北京）", "合约", "类型", "金额"], recent));
+  }
+  function renderSpot(r){
+    if (!r.ok){ setSec("sec-spot", errBox(r.error)); return; }
+    setSec("sec-spot", r.data.length ? table(["币种", "可用", "冻结", "合计"], r.data.map(function(b){
+      return "<tr><td><b>" + esc(b.asset) + "</b></td><td>" + qty(b.free) + "</td><td>" + qty(b.locked) + "</td><td>" + qty(b.total) + "</td></tr>"; })) : empty("现货账户没有余额"));
+  }
+
+  var loading = false;
+  async function load(){
+    if (loading) return; loading = true; $("updated").textContent = "刷新中…";
+    try {
+      var r = await fetch("/api/overview", {cache: "no-store"});
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      var d = await r.json();
+      $("mode").textContent = d.mode === "LIVE" ? "LIVE 实盘（只读）" : "MOCK 演示数据"; $("mode").className = "badge " + d.mode;
+      $("mock-tip").style.display = d.mode === "MOCK" ? "block" : "none";
+      renderAccount(d.account); renderRisk(d.risk); renderOrders(d.open_orders); renderIncome(d.income); renderSpot(d.spot);
+      $("updated").textContent = "更新于 " + d.queried_at + "（北京时间）· 每 30 秒自动刷新";
+    } catch(e) {
+      $("updated").textContent = "刷新失败：" + e.message + "（服务是否还在运行？）";
+    } finally { loading = false; }
+  }
+  $("refresh").onclick = load;
+  load(); setInterval(load, 30000);
+
+  // ---------------- AI 运维助手 ----------------
+  var history = [];
+  try { history = JSON.parse(sessionStorage.getItem("aiHistory") || "[]"); } catch(e) { history = []; }
+  function inline(s){ return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>"); }
+  function md(text){   // 极简 markdown：先转义再加标签，模型输出里的 HTML 不会被执行
+    var lines = String(text || "").split("\n"), out = [], i = 0;
+    while (i < lines.length){
+      var l = lines[i];
+      if (/^\s*\|.*\|\s*$/.test(l)){
+        var rows = []; while (i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])){ rows.push(lines[i]); i++; }
+        var h = "<table>";
+        rows.forEach(function(r, k){ if (/^\s*\|[\s:|-]+\|\s*$/.test(r)) return;
+          var tag = k === 0 ? "th" : "td";
+          h += "<tr>" + r.trim().slice(1, -1).split("|").map(function(c){ return "<" + tag + ">" + inline(c.trim()) + "</" + tag + ">"; }).join("") + "</tr>"; });
+        out.push(h + "</table>"); continue;
+      }
+      if (/^\s*([-*]|\d+\.) /.test(l)){
+        var items = []; while (i < lines.length && /^\s*([-*]|\d+\.) /.test(lines[i])){ items.push("<li>" + inline(lines[i].replace(/^\s*([-*]|\d+\.) /, "")) + "</li>"); i++; }
+        out.push("<ul>" + items.join("") + "</ul>"); continue;
+      }
+      var m = l.match(/^#{1,6} (.*)/);
+      if (m){ out.push("<h4>" + inline(m[1]) + "</h4>"); i++; continue; }
+      if (/^\s*---+\s*$/.test(l)){ i++; continue; }
+      out.push(l.trim() ? "<div>" + inline(l) + "</div>" : "<div style='height:6px'></div>"); i++;
+    }
+    return out.join("");
+  }
+  function add(kind, who, html, extra){
+    var d = document.createElement("div"); d.className = "msg " + kind;
+    d.innerHTML = "<div class='who'>" + esc(who) + "</div><div class='body'>" + html + "</div>" + (extra || "");
+    $("ai-log").appendChild(d); $("ai-log").scrollTop = 1e9; return d;
+  }
+  function setState(cls, text){ var s = $("ai-state"); s.className = cls; s.textContent = text; }
+  function redraw(){
+    $("ai-log").innerHTML = "";
+    if (!history.length) add("bot", "AI 运维助手", md("你好！我可以帮你查看账户权益、持仓、挂单与止损单、盈亏与资金费、风险体检、币安连接与 API 权限，并解释常见报错。\n**我只有只读权限，不会下单、撤单或改任何设置。**"));
+    history.forEach(function(h){ h.role === "user" ? add("user", "你", esc(h.content)) : add("bot", "AI 运维助手", md(h.content)); });
+  }
+  async function health(){
+    try {
+      var r = await fetch("/api/health", {cache: "no-store"}), j = await r.json();
+      if (r.ok && j.ok) setState("ok", "已连接 · " + j.tools + " 个工具 · " + j.model);
+      else setState("bad", "AI 服务异常"), $("ai-state").title = j.error || "";
+    } catch(e) { setState("bad", "未连接"); }
+  }
+  async function ask(q){
+    q = q.trim(); if (!q || $("ai-send").disabled) return;
+    add("user", "你", esc(q));
+    var wait = add("bot", "AI 运维助手", "<span class='muted'>正在查询账户数据并思考…（通常 10~40 秒）</span>");
+    $("ai-send").disabled = true; setState("busy", "思考中");
+    var t0 = Date.now();
+    try {
+      var r = await fetch("/api/ask", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({question: q, history: history})});
+      var j = await r.json(); wait.remove();
+      if (!r.ok || j.error){ add("err", "出错了", esc(j.error || ("HTTP " + r.status))); setState("bad", "出错"); return; }
+      var steps = (j.steps || []).map(function(s){ return esc(s.tool) + (s.error ? " ❌" : ""); }).join(" → ");
+      add("bot", "AI 运维助手", md(j.answer), "<div class='steps'>工具：" + (steps || "无") + " · " + j.seconds + "s · " + j.tokens + " token</div>");
+      history.push({role: "user", content: q}, {role: "assistant", content: j.answer});
+      history = history.slice(-12); sessionStorage.setItem("aiHistory", JSON.stringify(history));
+      setState("ok", "已连接");
+    } catch(e) {
+      wait.remove();
+      add("err", "未连接", esc("请求失败（" + Math.round((Date.now() - t0) / 1000) + " 秒）：" + e + "\n请检查 aiQuantHelper 窗口是否还开着。"));
+      setState("bad", "未连接");
+    } finally { $("ai-send").disabled = false; $("ai-input").focus(); }
+  }
+  $("ai-fab").onclick = function(){ var b = $("ai-box"); b.classList.toggle("open"); if (b.classList.contains("open")){ redraw(); health(); $("ai-input").focus(); } };
+  $("ai-close").onclick = function(){ $("ai-box").classList.remove("open"); };
+  $("ai-clear").onclick = function(){ history = []; sessionStorage.removeItem("aiHistory"); redraw(); };
+  $("ai-form").onsubmit = function(e){ e.preventDefault(); var v = $("ai-input").value; $("ai-input").value = ""; ask(v); };
+  $("ai-input").onkeydown = function(e){ if (e.key === "Enter" && !e.shiftKey){ e.preventDefault(); $("ai-form").onsubmit(e); } };
+  Array.prototype.forEach.call(document.querySelectorAll("#ai-quick button"), function(b){ b.onclick = function(){ ask(b.textContent); }; });
+})();
+</script>
+</body>
+</html>

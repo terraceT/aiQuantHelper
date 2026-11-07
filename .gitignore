@@ -1,0 +1,12 @@
+# 你的密钥在 config.ini 里：绝不提交
+config.ini
+.venv/
+.python/
+.python.download/
+__pycache__/
+*.pyc
+logs/
+.pytest_cache/
+# 开发者本机用的进度记录与测试脚本（不发布）
+PROGRESS.md
+work/

@@ -1,0 +1,7 @@
+* text=auto eol=lf
+# Windows 用户会用记事本 / cmd / PowerShell 打开的文件：检出为 CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.txt text eol=crlf
+*.ini text eol=crlf
+*.png binary

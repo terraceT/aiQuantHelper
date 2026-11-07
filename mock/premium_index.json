@@ -1,0 +1,52 @@
+{
+  "BTCUSDT": {
+    "symbol": "BTCUSDT",
+    "markPrice": "76000.00000000",
+    "indexPrice": "76015.20000000",
+    "estimatedSettlePrice": "76000.00000000",
+    "lastFundingRate": "0.00010000",
+    "interestRate": "0.00010000",
+    "nextFundingTime": 1793014400000,
+    "time": 1793000000000
+  },
+  "ETHUSDT": {
+    "symbol": "ETHUSDT",
+    "markPrice": "3620.00000000",
+    "indexPrice": "3620.72400000",
+    "estimatedSettlePrice": "3620.00000000",
+    "lastFundingRate": "0.00008000",
+    "interestRate": "0.00010000",
+    "nextFundingTime": 1793014400000,
+    "time": 1793000000000
+  },
+  "SOLUSDT": {
+    "symbol": "SOLUSDT",
+    "markPrice": "172.00000000",
+    "indexPrice": "172.03440000",
+    "estimatedSettlePrice": "172.00000000",
+    "lastFundingRate": "-0.00003000",
+    "interestRate": "0.00010000",
+    "nextFundingTime": 1793014400000,
+    "time": 1793000000000
+  },
+  "BNBUSDT": {
+    "symbol": "BNBUSDT",
+    "markPrice": "700.00000000",
+    "indexPrice": "700.14000000",
+    "estimatedSettlePrice": "700.00000000",
+    "lastFundingRate": "0.00005000",
+    "interestRate": "0.00010000",
+    "nextFundingTime": 1793014400000,
+    "time": 1793000000000
+  },
+  "DOGEUSDT": {
+    "symbol": "DOGEUSDT",
+    "markPrice": "0.18000000",
+    "indexPrice": "0.18003600",
+    "estimatedSettlePrice": "0.18000000",
+    "lastFundingRate": "0.00010000",
+    "interestRate": "0.00010000",
+    "nextFundingTime": 1793014400000,
+    "time": 1793000000000
+  }
+}

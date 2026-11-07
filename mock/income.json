@@ -1,0 +1,712 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.01919597",
+    "asset": "USDT",
+    "time": 1792424000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000001,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.10580090",
+    "asset": "USDT",
+    "time": 1792424000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000002,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.20866648",
+    "asset": "USDT",
+    "time": 1792424000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000003,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.14320616",
+    "asset": "USDT",
+    "time": 1792452800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000004,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.17853814",
+    "asset": "USDT",
+    "time": 1792452800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000005,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.04185488",
+    "asset": "USDT",
+    "time": 1792452800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000006,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "REALIZED_PNL",
+    "income": "86.40000000",
+    "asset": "USDT",
+    "time": 1792460000000,
+    "info": "REALIZED_PNL",
+    "tranId": 5000064,
+    "tradeId": "5100064"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "COMMISSION",
+    "income": "-2.52800000",
+    "asset": "USDT",
+    "time": 1792460000000,
+    "info": "COMMISSION",
+    "tranId": 5000065,
+    "tradeId": "5100065"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.15253269",
+    "asset": "USDT",
+    "time": 1792481600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000007,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.15753114",
+    "asset": "USDT",
+    "time": 1792481600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000008,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.15007254",
+    "asset": "USDT",
+    "time": 1792481600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000009,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.09013511",
+    "asset": "USDT",
+    "time": 1792510400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000010,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.16561317",
+    "asset": "USDT",
+    "time": 1792510400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000011,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.11895103",
+    "asset": "USDT",
+    "time": 1792510400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000012,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.08423940",
+    "asset": "USDT",
+    "time": 1792539200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000013,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.39341376",
+    "asset": "USDT",
+    "time": 1792539200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000014,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.09960061",
+    "asset": "USDT",
+    "time": 1792539200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000015,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.04578763",
+    "asset": "USDT",
+    "time": 1792568000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000016,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.24614689",
+    "asset": "USDT",
+    "time": 1792568000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000017,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.38222019",
+    "asset": "USDT",
+    "time": 1792568000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000018,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.18280850",
+    "asset": "USDT",
+    "time": 1792596800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000019,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.07574060",
+    "asset": "USDT",
+    "time": 1792596800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000020,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.39891399",
+    "asset": "USDT",
+    "time": 1792596800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000021,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "REALIZED_PNL",
+    "income": "-42.10000000",
+    "asset": "USDT",
+    "time": 1792604000000,
+    "info": "REALIZED_PNL",
+    "tranId": 5000066,
+    "tradeId": "5100066"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "COMMISSION",
+    "income": "-1.64200000",
+    "asset": "USDT",
+    "time": 1792604000000,
+    "info": "COMMISSION",
+    "tranId": 5000067,
+    "tradeId": "5100067"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.15990759",
+    "asset": "USDT",
+    "time": 1792625600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000022,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.41676179",
+    "asset": "USDT",
+    "time": 1792625600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000023,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.00263649",
+    "asset": "USDT",
+    "time": 1792625600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000024,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.09681122",
+    "asset": "USDT",
+    "time": 1792654400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000025,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.13021279",
+    "asset": "USDT",
+    "time": 1792654400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000026,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.00840017",
+    "asset": "USDT",
+    "time": 1792654400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000027,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.33721763",
+    "asset": "USDT",
+    "time": 1792683200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000028,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.08373718",
+    "asset": "USDT",
+    "time": 1792683200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000029,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.16811978",
+    "asset": "USDT",
+    "time": 1792683200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000030,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.22273810",
+    "asset": "USDT",
+    "time": 1792712000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000031,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.05780814",
+    "asset": "USDT",
+    "time": 1792712000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000032,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.14832096",
+    "asset": "USDT",
+    "time": 1792712000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000033,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.14943832",
+    "asset": "USDT",
+    "time": 1792740800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000034,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.17318573",
+    "asset": "USDT",
+    "time": 1792740800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000035,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.05155534",
+    "asset": "USDT",
+    "time": 1792740800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000036,
+    "tradeId": ""
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "incomeType": "REALIZED_PNL",
+    "income": "18.75000000",
+    "asset": "USDT",
+    "time": 1792748000000,
+    "info": "REALIZED_PNL",
+    "tranId": 5000068,
+    "tradeId": "5100068"
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "incomeType": "COMMISSION",
+    "income": "-1.17500000",
+    "asset": "USDT",
+    "time": 1792748000000,
+    "info": "COMMISSION",
+    "tranId": 5000069,
+    "tradeId": "5100069"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.24953838",
+    "asset": "USDT",
+    "time": 1792769600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000037,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.09856837",
+    "asset": "USDT",
+    "time": 1792769600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000038,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.01171327",
+    "asset": "USDT",
+    "time": 1792769600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000039,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.18827296",
+    "asset": "USDT",
+    "time": 1792798400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000040,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.11746760",
+    "asset": "USDT",
+    "time": 1792798400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000041,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.00330374",
+    "asset": "USDT",
+    "time": 1792798400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000042,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.32316915",
+    "asset": "USDT",
+    "time": 1792827200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000043,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.29899341",
+    "asset": "USDT",
+    "time": 1792827200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000044,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.02925236",
+    "asset": "USDT",
+    "time": 1792827200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000045,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.18107772",
+    "asset": "USDT",
+    "time": 1792856000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000046,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.17064711",
+    "asset": "USDT",
+    "time": 1792856000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000047,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.33978041",
+    "asset": "USDT",
+    "time": 1792856000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000048,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.28122166",
+    "asset": "USDT",
+    "time": 1792884800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000049,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.00456372",
+    "asset": "USDT",
+    "time": 1792884800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000050,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.40120625",
+    "asset": "USDT",
+    "time": 1792884800000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000051,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "REALIZED_PNL",
+    "income": "-12.30000000",
+    "asset": "USDT",
+    "time": 1792892000000,
+    "info": "REALIZED_PNL",
+    "tranId": 5000070,
+    "tradeId": "5100070"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "COMMISSION",
+    "income": "-1.04600000",
+    "asset": "USDT",
+    "time": 1792892000000,
+    "info": "COMMISSION",
+    "tranId": 5000071,
+    "tradeId": "5100071"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.11372951",
+    "asset": "USDT",
+    "time": 1792913600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000052,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.09157534",
+    "asset": "USDT",
+    "time": 1792913600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000053,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.27077602",
+    "asset": "USDT",
+    "time": 1792913600000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000054,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.09181799",
+    "asset": "USDT",
+    "time": 1792942400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000055,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.14388947",
+    "asset": "USDT",
+    "time": 1792942400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000056,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.14907160",
+    "asset": "USDT",
+    "time": 1792942400000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000057,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.24166744",
+    "asset": "USDT",
+    "time": 1792971200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000058,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.34742029",
+    "asset": "USDT",
+    "time": 1792971200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000059,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.16310557",
+    "asset": "USDT",
+    "time": 1792971200000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000060,
+    "tradeId": ""
+  },
+  {
+    "symbol": "BTCUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.37555867",
+    "asset": "USDT",
+    "time": 1793000000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000061,
+    "tradeId": ""
+  },
+  {
+    "symbol": "ETHUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "0.01449626",
+    "asset": "USDT",
+    "time": 1793000000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000062,
+    "tradeId": ""
+  },
+  {
+    "symbol": "SOLUSDT",
+    "incomeType": "FUNDING_FEE",
+    "income": "-0.23460873",
+    "asset": "USDT",
+    "time": 1793000000000,
+    "info": "FUNDING_FEE",
+    "tranId": 5000063,
+    "tradeId": ""
+  }
+]

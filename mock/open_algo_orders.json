@@ -1,0 +1,23 @@
+[
+  {
+    "algoId": 920001,
+    "clientAlgoId": "demoSL1",
+    "algoType": "CONDITIONAL",
+    "orderType": "STOP_MARKET",
+    "symbol": "BTCUSDT",
+    "side": "SELL",
+    "positionSide": "BOTH",
+    "timeInForce": "GTE_GTC",
+    "quantity": "0",
+    "algoStatus": "NEW",
+    "triggerPrice": "68000",
+    "price": "0",
+    "workingType": "MARK_PRICE",
+    "priceMatch": "NONE",
+    "closePosition": true,
+    "priceProtect": true,
+    "reduceOnly": true,
+    "createTime": 1792931600000,
+    "updateTime": 1792931600000
+  }
+]
